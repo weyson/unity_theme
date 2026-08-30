@@ -10,7 +10,7 @@ namespace Wey.EditorTheme
     [InitializeOnLoad]
     public static class WeyEditorThemeInjector
     {
-        public const string StrLightUssPackagePath = "Packages/com.wey.editor-theme/Editor/StyleSheets/Extensions/light.uss";
+        public const string StrLightUssPackagePath = WeyEditorThemePaletteSync.StrLightUssPackagePath;
 
         private static StyleSheet SheetLight;
         private static VisualElement VeInjectedRoot;
@@ -21,6 +21,12 @@ namespace Wey.EditorTheme
         static WeyEditorThemeInjector()
         {
             EditorApplication.update += InjectToolbarTheme;
+        }
+
+        public static void InvalidateSheetCache()
+        {
+            SheetLight = null;
+            IntInjectedHash = 0;
         }
 
         public static void Refresh()

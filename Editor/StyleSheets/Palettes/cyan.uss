@@ -1,5 +1,5 @@
-/* Wey Editor Theme: active palette (auto-synced from Preferences).
-   Enable: Edit > Preferences > General > Editor Theme = Light. */
+/* Wey Editor Theme palette: Cyan.
+   Synced to light.uss when selected in Preferences > Wey > Editor Theme. */
 
 .unity-theme-env-variables,
 :root {

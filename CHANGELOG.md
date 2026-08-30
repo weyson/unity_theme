@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0
+
+- Add six color schemes in Preferences > Wey > Editor Theme: Cyan, Warm, Lavender, Sand, Mint, Rose.
+- Split USS into shared `common.uss`, active `light.uss` palette, and `Palettes/*.uss` definitions.
+- Add `WeyEditorThemePaletteSync` to sync the selected palette into `light.uss`.
+
 ## 1.0.2
 
 - Fix compile: use `UnityEditorInternal.InternalEditorUtility.RepaintAllViews()`.

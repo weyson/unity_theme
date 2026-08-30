@@ -1,6 +1,6 @@
 # Wey Editor Theme
 
-Cyan-tinted **Light** theme for the Unity Editor (2022.3+).
+Cyan-tinted **Light** theme for the Unity Editor (2022.3+), with multiple color scheme variants.
 
 Repository: [weyson/unity_theme](https://github.com/weyson/unity_theme)
 
@@ -15,7 +15,7 @@ Add to `Packages/manifest.json`:
 Optional version pin:
 
 ```json
-"com.wey.editor-theme": "https://github.com/weyson/unity_theme.git#v1.0.0"
+"com.wey.editor-theme": "https://github.com/weyson/unity_theme.git#v1.1.0"
 ```
 
 Local development:
@@ -27,22 +27,32 @@ Local development:
 ## Usage
 
 1. Set **Edit > Preferences > General > Editor Theme** to **Light**.
-2. Enable **Edit > Preferences > Wey > Editor Theme** (toolbar injection, on by default).
-3. Domain reload or restart Unity if some chrome does not refresh.
+2. Open **Edit > Preferences > Wey > Editor Theme** and pick a **Color Scheme**:
+   - **Cyan** (default)
+   - **Warm**
+   - **Lavender**
+   - **Sand**
+   - **Mint**
+   - **Rose**
+3. Enable **Enable Toolbar Theme Injection** (on by default).
+4. Domain reload or restart Unity if some chrome does not refresh after changing the color scheme.
 
 ## How it works
 
-- `Editor/StyleSheets/Extensions/*.uss` — merged automatically by Unity for IMGUI editor chrome.
+- `Editor/StyleSheets/Extensions/common.uss` — shared selector rules using CSS variables.
+- `Editor/StyleSheets/Extensions/light.uss` — active palette variables (synced from your color scheme choice).
+- `Editor/StyleSheets/Palettes/*.uss` — palette definitions for each color scheme.
 - `WeyEditorThemeInjector` — injects `light.uss` onto the main toolbar and buttons that ship their own `ToolbarLight` styles (Play/Pause/Step, Layout, Layers, etc.).
+- `WeyEditorThemePaletteSync` — copies the selected palette into `light.uss` so Unity merges the correct colors globally.
 
 ## Toggle behavior
 
-- **On**: toolbar UITK buttons use the cyan palette.
+- **On**: toolbar UITK buttons use the selected palette.
 - **Off**: injection stops; global IMGUI tint from Extensions USS may remain until the package is removed.
 
 ## Customize colors
 
-Edit `Editor/StyleSheets/Extensions/light.uss`, then trigger a domain reload.
+Edit a palette file under `Editor/StyleSheets/Palettes/`, then switch color schemes in Preferences (or domain reload) to re-sync `light.uss`.
 
 ## License
 

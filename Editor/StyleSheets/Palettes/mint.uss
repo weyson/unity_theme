@@ -1,0 +1,126 @@
+/* Wey Editor Theme palette: Mint.
+   Synced to light.uss when selected in Preferences > Wey > Editor Theme. */
+
+.unity-theme-env-variables,
+:root {
+    --unity-colors-alternated_rows-background: #D7EBE4;
+    --unity-colors-app_toolbar-background: #B9DCC4;
+    --unity-colors-app_toolbar_button-background: #D4F0E0;
+    --unity-colors-app_toolbar_button-background-checked: #8ECEA8;
+    --unity-colors-app_toolbar_button-background-hover: #C5E8D4;
+    --unity-colors-app_toolbar_button-background-pressed: #8ECEA8;
+    --unity-colors-app_toolbar_button-border: #7AB49A;
+    --unity-colors-app_toolbar_button-border_accent: #7AB49A;
+
+    --unity-colors-box-background: rgba(185, 220, 196, 0.55);
+    --unity-colors-box-border: transparent;
+
+    --unity-colors-button-background: #E7F6F0;
+    --unity-colors-button-background-focus: #C5E8D4;
+    --unity-colors-button-background-hover: #D4F0E0;
+    --unity-colors-button-background-hover_pressed: #B3E4D0;
+    --unity-colors-button-background-pressed: #9FDAC4;
+    --unity-colors-button-border: #A8D2C0;
+    --unity-colors-button-border_accent: #8BBEA8;
+    --unity-colors-button-border_accent-focus: #4A9E82;
+    --unity-colors-button-border-pressed: #5FA490;
+    --unity-colors-button-text: #163628;
+
+    --unity-colors-default-background: #C5E0D4;
+    --unity-colors-default-border: #9CC4B0;
+    --unity-colors-default-text: #163628;
+    --unity-colors-default-text-hover: #163628;
+
+    --unity-colors-dropdown-background: #E7F6F0;
+    --unity-colors-dropdown-background-hover: #D4F0E0;
+    --unity-colors-dropdown-border: #A8D2C0;
+    --unity-colors-dropdown-border_accent: #8BBEA8;
+    --unity-colors-dropdown-text: #163628;
+
+    --unity-colors-headerbar-background: #D2EDE4;
+    --unity-colors-headerbar_column-background: #D2EDE4;
+    --unity-colors-headerbar_column-background-hover: #C5E8D4;
+    --unity-colors-headerbar_column-background-pressed: #E4F2ED;
+
+    --unity-colors-helpbox-background: rgba(232, 248, 238, 0.55);
+    --unity-colors-helpbox-border: #A8D2C0;
+    --unity-colors-helpbox-text: #163628;
+
+    --unity-colors-highlight-background: #4A9E82;
+    --unity-colors-highlight-background-hover: rgba(74, 158, 130, 0.10);
+    --unity-colors-highlight-background-hover-lighter: #B5DCC8;
+    --unity-colors-highlight-background-inactive: #A8D2C0;
+    --unity-colors-highlight-text: #0A503A;
+    --unity-colors-highlight-text-inactive: #163628;
+
+    --unity-colors-input_field-background: #F7FDF9;
+    --unity-colors-input_field-border: #B4D4C0;
+    --unity-colors-input_field-border_accent: #9CC4B0;
+    --unity-colors-input_field-border-focus: #4A9E82;
+    --unity-colors-input_field-border-hover: #5FA490;
+
+    --unity-colors-inspector_titlebar-background: #D2EDE4;
+    --unity-colors-inspector_titlebar-background-hover: #C5E8D4;
+    --unity-colors-inspector_titlebar-border: #7AB49A;
+    --unity-colors-inspector_titlebar-border_accent: #B4D4C0;
+
+    --unity-colors-label-text: #163628;
+    --unity-colors-label-text-focus: #0A6440;
+    --unity-colors-link-text: #4A9E82;
+
+    --unity-colors-list_view_item-background-hover: #D7EBE4;
+
+    --unity-colors-object_field-background: #E4F2ED;
+    --unity-colors-object_field-border: #B4D4C0;
+    --unity-colors-object_field-border-focus: #4A9E82;
+    --unity-colors-object_field-border-hover: #5FA490;
+    --unity-colors-object_field_button-background: #E7F6F0;
+    --unity-colors-object_field_button-background-hover: #D4F0E0;
+
+    --unity-colors-play_mode-background: #DCEFE8;
+    --unity-colors-popup-background: #E4F2EA;
+    --unity-colors-preview-background: #E4F2EA;
+    --unity-colors-preview-border: #9CC4B0;
+    --unity-colors-preview-text: #163628;
+
+    --unity-colors-progress-background: #8BBEA8;
+    --unity-colors-scrollbar_button-background-hover: #C5E0D4;
+    --unity-colors-scrollbar_thumb-background: #9CC4B0;
+    --unity-colors-scrollbar_thumb-background-hover: #7AB49A;
+    --unity-colors-scrollbar_thumb-border: #B4D4C0;
+    --unity-colors-scrollbar_thumb-border-hover: #7AB49A;
+
+    --unity-colors-slider_groove-background: #9CC4B0;
+    --unity-colors-slider_groove-background-disabled: #C5E0D4;
+    --unity-colors-slider_thumb-background: #4A9E82;
+    --unity-colors-slider_thumb-background-hover: #158070;
+    --unity-colors-slider_thumb-border: #4A9E82;
+    --unity-colors-slider_thumb_halo-background: rgba(74, 158, 130, 0.45);
+
+    --unity-colors-tab-background: #C8E0D4;
+    --unity-colors-tab-background-checked: #E4F2ED;
+    --unity-colors-tab-background-hover: #D7EBE4;
+    --unity-colors-tab-text: #163628;
+
+    --unity-colors-toolbar-background: #D2EDE4;
+    --unity-colors-toolbar-border: #9CC4B0;
+    --unity-colors-toolbar_button-background: #D2EDE4;
+    --unity-colors-toolbar_button-background-checked: #E4F2ED;
+    --unity-colors-toolbar_button-background-focus: #C5E8D4;
+    --unity-colors-toolbar_button-background-hover: #C5E8D4;
+    --unity-colors-toolbar_button-border: #9CC4B0;
+    --unity-colors-toolbar_button-text: #163628;
+    --unity-colors-toolbar_button-text-checked: #163628;
+    --unity-colors-toolbar_button-text-hover: #163628;
+
+    --unity-colors-tooltip-background: #E7F6F0;
+    --unity-colors-tooltip-border: #7AB49A;
+    --unity-colors-visited_link-text: #0A6440;
+
+    --unity-colors-window-background: #E4F2EA;
+    --unity-colors-window-border: #8BBEA8;
+    --unity-colors-window-text: #163628;
+    --wey-colors-selection-overlay: rgba(74, 158, 130, 0.08);
+    --wey-colors-toolbar-hover-mid: #A8DEC8;
+    --wey-colors-toolbar-active-mid: #6ECCA8;
+}
