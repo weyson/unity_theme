@@ -12,6 +12,8 @@ namespace Wey.EditorTheme
     {
         public const string StrLightUssPackagePath = WeyEditorThemePaletteSync.StrLightUssPackagePath;
 
+        private const string StrLightSheetName = "light";
+
         private static StyleSheet SheetLight;
         private static VisualElement VeInjectedRoot;
         private static int IntInjectedHash;
@@ -31,9 +33,11 @@ namespace Wey.EditorTheme
 
         public static void Refresh()
         {
-            if (VeInjectedRoot != null)
-                RemoveSheetRecursive(VeInjectedRoot);
+            StyleSheet sheetOld = SheetLight;
+            if (VeInjectedRoot != null && sheetOld != null)
+                RemoveSheetRecursive(VeInjectedRoot, sheetOld);
             VeInjectedRoot = null;
+            SheetLight = null;
             IntInjectedHash = 0;
             InjectToolbarTheme();
             UnityEditorInternal.InternalEditorUtility.RepaintAllViews();
@@ -43,8 +47,9 @@ namespace Wey.EditorTheme
         {
             if (EditorGUIUtility.isProSkin || !WeyEditorThemeSettings.IsEnabled)
             {
-                if (VeInjectedRoot != null)
-                    RemoveSheetRecursive(VeInjectedRoot);
+                StyleSheet sheetOld = SheetLight;
+                if (VeInjectedRoot != null && sheetOld != null)
+                    RemoveSheetRecursive(VeInjectedRoot, sheetOld);
                 VeInjectedRoot = null;
                 return;
             }
@@ -70,7 +75,7 @@ namespace Wey.EditorTheme
                 return;
             bool isSameRoot = VeInjectedRoot == veRoot && veRoot.panel != null;
             bool isSameHash = IntInjectedHash == SheetLight.contentHash;
-            if (isSameRoot && isSameHash && HasLightSheet(veRoot))
+            if (isSameRoot && isSameHash && HasLightSheet(veRoot, SheetLight))
                 return;
             AddOrRefreshSheetRecursive(veRoot);
             VeInjectedRoot = veRoot;
@@ -86,15 +91,8 @@ namespace Wey.EditorTheme
                 VisualElement ve = queueVe.Dequeue();
                 if (ve.styleSheets.count > 0)
                 {
-                    if (HasLightSheet(ve))
-                    {
-                        if (IntInjectedHash != SheetLight.contentHash)
-                        {
-                            ve.styleSheets.Remove(SheetLight);
-                            ve.styleSheets.Add(SheetLight);
-                        }
-                    }
-                    else
+                    RemoveStaleLightSheets(ve);
+                    if (!HasLightSheet(ve, SheetLight))
                         ve.styleSheets.Add(SheetLight);
                 }
                 int intChildCount = ve.childCount;
@@ -103,29 +101,41 @@ namespace Wey.EditorTheme
             }
         }
 
-        private static void RemoveSheetRecursive(VisualElement veRoot)
+        private static void RemoveStaleLightSheets(VisualElement ve)
         {
-            if (SheetLight == null)
+            for (int i = ve.styleSheets.count - 1; i >= 0; i--)
+            {
+                StyleSheet sheet = ve.styleSheets[i];
+                if (sheet != null && sheet != SheetLight && sheet.name == StrLightSheetName)
+                    ve.styleSheets.RemoveAt(i);
+            }
+        }
+
+        private static void RemoveSheetRecursive(VisualElement veRoot, StyleSheet sheet)
+        {
+            if (sheet == null)
                 return;
             Queue<VisualElement> queueVe = new Queue<VisualElement>();
             queueVe.Enqueue(veRoot);
             while (queueVe.Count > 0)
             {
                 VisualElement ve = queueVe.Dequeue();
-                if (HasLightSheet(ve))
-                    ve.styleSheets.Remove(SheetLight);
+                if (HasLightSheet(ve, sheet))
+                    ve.styleSheets.Remove(sheet);
                 int intChildCount = ve.childCount;
                 for (int i = 0; i < intChildCount; i++)
                     queueVe.Enqueue(ve[i]);
             }
         }
 
-        private static bool HasLightSheet(VisualElement veRoot)
+        private static bool HasLightSheet(VisualElement veRoot, StyleSheet sheet)
         {
+            if (sheet == null)
+                return false;
             int intCount = veRoot.styleSheets.count;
             for (int i = 0; i < intCount; i++)
             {
-                if (veRoot.styleSheets[i] == SheetLight)
+                if (veRoot.styleSheets[i] == sheet)
                     return true;
             }
             return false;

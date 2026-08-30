@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.2
+
+- Fix color scheme switch back (e.g. Warm to Cyan): remove the previous injected StyleSheet before reloading `light.uss`, so toolbar colors update correctly.
+
 ## 1.1.1
 
 - Fix black editor UI: restore IMGUI selector rules with literal colors in each palette and `light.uss`. Unity Extensions USS does not resolve `var()` across `common.uss` / `light.uss`.

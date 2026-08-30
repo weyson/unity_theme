@@ -50,7 +50,6 @@ namespace Wey.EditorTheme
 
             File.WriteAllText(strLightDiskPath, strLightContent);
             AssetDatabase.ImportAsset(StrLightUssPackagePath);
-            WeyEditorThemeInjector.InvalidateSheetCache();
             WeyEditorThemeInjector.Refresh();
         }
 
