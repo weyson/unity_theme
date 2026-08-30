@@ -1,0 +1,720 @@
+/* Wey Editor Theme: cyan-tinted Light.
+   Enable: Edit > Preferences > General > Editor Theme = Light.
+   Domain reload or restart if chrome does not refresh. */
+
+.unity-theme-env-variables,
+:root {
+    --unity-colors-alternated_rows-background: #D7EBEE;
+    --unity-colors-app_toolbar-background: #B9D8DC;
+    --unity-colors-app_toolbar_button-background: #D4EBEE;
+    --unity-colors-app_toolbar_button-background-checked: #8EC8CE;
+    --unity-colors-app_toolbar_button-background-hover: #C5E4E8;
+    --unity-colors-app_toolbar_button-background-pressed: #8EC8CE;
+    --unity-colors-app_toolbar_button-border: #7AAEB4;
+    --unity-colors-app_toolbar_button-border_accent: #7AAEB4;
+
+    --unity-colors-box-background: rgba(185, 216, 220, 0.55);
+    --unity-colors-box-border: transparent;
+
+    --unity-colors-button-background: #E7F4F6;
+    --unity-colors-button-background-focus: #C5E4E8;
+    --unity-colors-button-background-hover: #D4EBEE;
+    --unity-colors-button-background-hover_pressed: #B3E0E4;
+    --unity-colors-button-background-pressed: #9FD4DA;
+    --unity-colors-button-border: #A8CDD2;
+    --unity-colors-button-border_accent: #8BB8BE;
+    --unity-colors-button-border_accent-focus: #1A8A94;
+    --unity-colors-button-border-pressed: #5F9CA4;
+    --unity-colors-button-text: #163236;
+
+    --unity-colors-default-background: #C5DCE0;
+    --unity-colors-default-border: #9CBEC4;
+    --unity-colors-default-text: #163236;
+    --unity-colors-default-text-hover: #163236;
+
+    --unity-colors-dropdown-background: #E7F4F6;
+    --unity-colors-dropdown-background-hover: #D4EBEE;
+    --unity-colors-dropdown-border: #A8CDD2;
+    --unity-colors-dropdown-border_accent: #8BB8BE;
+    --unity-colors-dropdown-text: #163236;
+
+    --unity-colors-headerbar-background: #D2EAED;
+    --unity-colors-headerbar_column-background: #D2EAED;
+    --unity-colors-headerbar_column-background-hover: #C5E4E8;
+    --unity-colors-headerbar_column-background-pressed: #F3FAFB;
+
+    --unity-colors-helpbox-background: rgba(232, 246, 248, 0.55);
+    --unity-colors-helpbox-border: #A8CDD2;
+    --unity-colors-helpbox-text: #163236;
+
+    --unity-colors-highlight-background: #2A9AA6;
+    --unity-colors-highlight-background-hover: rgba(26, 138, 148, 0.10);
+    --unity-colors-highlight-background-hover-lighter: #B5D8DC;
+    --unity-colors-highlight-background-inactive: #A8CDD2;
+    --unity-colors-highlight-text: #0A4A50;
+    --unity-colors-highlight-text-inactive: #163236;
+
+    --unity-colors-input_field-background: #F7FCFD;
+    --unity-colors-input_field-border: #B4D0D4;
+    --unity-colors-input_field-border_accent: #9CBEC4;
+    --unity-colors-input_field-border-focus: #1A8A94;
+    --unity-colors-input_field-border-hover: #5F9CA4;
+
+    --unity-colors-inspector_titlebar-background: #D2EAED;
+    --unity-colors-inspector_titlebar-background-hover: #C5E4E8;
+    --unity-colors-inspector_titlebar-border: #7AAEB4;
+    --unity-colors-inspector_titlebar-border_accent: #B4D0D4;
+
+    --unity-colors-label-text: #163236;
+    --unity-colors-label-text-focus: #0A5C64;
+    --unity-colors-link-text: #1A8A94;
+
+    --unity-colors-list_view_item-background-hover: #D7EBEE;
+
+    --unity-colors-object_field-background: #F3FAFB;
+    --unity-colors-object_field-border: #B4D0D4;
+    --unity-colors-object_field-border-focus: #1A8A94;
+    --unity-colors-object_field-border-hover: #5F9CA4;
+    --unity-colors-object_field_button-background: #E7F4F6;
+    --unity-colors-object_field_button-background-hover: #D4EBEE;
+
+    --unity-colors-play_mode-background: #DCEEEF;
+    --unity-colors-popup-background: #E4F0F2;
+    --unity-colors-preview-background: #E4F0F2;
+    --unity-colors-preview-border: #9CBEC4;
+    --unity-colors-preview-text: #163236;
+
+    --unity-colors-progress-background: #8BB8BE;
+    --unity-colors-scrollbar_button-background-hover: #C5DCE0;
+    --unity-colors-scrollbar_thumb-background: #9CBEC4;
+    --unity-colors-scrollbar_thumb-background-hover: #7AAEB4;
+    --unity-colors-scrollbar_thumb-border: #B4D0D4;
+    --unity-colors-scrollbar_thumb-border-hover: #7AAEB4;
+
+    --unity-colors-slider_groove-background: #9CBEC4;
+    --unity-colors-slider_groove-background-disabled: #C5DCE0;
+    --unity-colors-slider_thumb-background: #1A8A94;
+    --unity-colors-slider_thumb-background-hover: #157780;
+    --unity-colors-slider_thumb-border: #1A8A94;
+    --unity-colors-slider_thumb_halo-background: rgba(26, 138, 148, 0.45);
+
+    --unity-colors-tab-background: #C8DDE0;
+    --unity-colors-tab-background-checked: #F3FAFB;
+    --unity-colors-tab-background-hover: #D7EBEE;
+    --unity-colors-tab-text: #163236;
+
+    --unity-colors-toolbar-background: #D2EAED;
+    --unity-colors-toolbar-border: #9CBEC4;
+    --unity-colors-toolbar_button-background: #D2EAED;
+    --unity-colors-toolbar_button-background-checked: #F3FAFB;
+    --unity-colors-toolbar_button-background-focus: #C5E4E8;
+    --unity-colors-toolbar_button-background-hover: #C5E4E8;
+    --unity-colors-toolbar_button-border: #9CBEC4;
+    --unity-colors-toolbar_button-text: #163236;
+    --unity-colors-toolbar_button-text-checked: #163236;
+    --unity-colors-toolbar_button-text-hover: #163236;
+
+    --unity-colors-tooltip-background: #E7F4F6;
+    --unity-colors-tooltip-border: #7AAEB4;
+    --unity-colors-visited_link-text: #0A5C64;
+
+    --unity-colors-window-background: #E4F0F2;
+    --unity-colors-window-border: #8BB8BE;
+    --unity-colors-window-text: #163236;
+}
+
+.AppToolbar,
+.ScrollViewAlt,
+.Toolbar,
+.dockarea,
+.dockArea,
+.ProjectBrowserBottomBarBg,
+.ProjectBrowserTopBarBg,
+.ProjectBrowserIconAreaBg,
+.TabWindowBackground,
+.PreToolbar,
+.IN-Footer,
+.IN-BigTitle,
+.SceneTopBarBg,
+.PreBackground,
+.RL-Header,
+.RL-Background,
+.RL-Footer,
+.hostview,
+.ScriptText {
+    background-image: none;
+    background-color: #F3FAFB;
+    border-top-color: #C5DCE0;
+    border-bottom-color: #C5DCE0;
+    border-left-color: #C5DCE0;
+    border-right-color: #C5DCE0;
+}
+
+.AppToolbar {
+    background-color: #B9D8DC;
+}
+
+.dockHeader,
+.FoldoutHeader {
+    background-color: #D2EAED;
+    border-top-color: #C5DCE0;
+    border-bottom-color: #C5DCE0;
+    border-left-color: #C5DCE0;
+    border-right-color: #C5DCE0;
+}
+
+.WhiteBackground,
+.TV-Selection {
+    background-image: none;
+    background-color: rgba(26, 138, 148, 0.08);
+}
+
+.AppCommand,
+.AppCommandLeft,
+.AppCommandMid,
+.AppCommandRight,
+.AppToolbarButtonLeft,
+.AppToolbarButtonMid,
+.AppToolbarButtonRight,
+.DropDown,
+.DropDownButton,
+.toolbarbutton,
+.toolbarbuttonLeft,
+.toolbarbuttonMid,
+.toolbarbuttonRight,
+.ToolbarDropDownToggle,
+.ToolbarDropDownToggleLeft,
+.ToolbarDropDownToggleMid,
+.ToolbarDropDownToggleRight,
+.ToolbarDropDown,
+.ToolbarDropDownLeft,
+.ToolbarDropDownMid,
+.ToolbarDropDownRight,
+.ToolbarPopup,
+.ToolbarPopupLeft,
+.ToolbarPopupMid,
+.ToolbarPopupRight,
+.TextField,
+.MiniPopup,
+.MiniPullDown,
+.BoldTextField,
+.toggle,
+.Button,
+.LargeButton,
+.LargeButtonLeft,
+.LargeButtonMid,
+.LargeButtonRight,
+.minibutton,
+.minibuttonleft,
+.minibuttonmid,
+.minibuttonright,
+.ButtonLeft,
+.ButtonMid,
+.ButtonRight,
+.ObjectField,
+.ObjectFieldButton,
+.ColorField,
+.AC-Button,
+.IN-Title,
+.ToolbarCreateAddNewDropDown,
+.StatusBarIcon {
+    background-image: none;
+    background-color: #F3FAFB;
+    border-top-color: #A8CDD2;
+    border-bottom-color: #A8CDD2;
+    border-left-color: #A8CDD2;
+    border-right-color: #A8CDD2;
+    color: #163236;
+}
+
+.AppCommand:hover,
+.AppCommand:checked,
+.AppCommandLeft:hover,
+.AppCommandLeft:checked,
+.AppCommandMid:hover,
+.AppCommandMid:checked,
+.AppCommandRight:hover,
+.AppCommandRight:checked,
+.AppToolbarButtonLeft:hover,
+.AppToolbarButtonLeft:checked,
+.AppToolbarButtonMid:hover,
+.AppToolbarButtonMid:checked,
+.AppToolbarButtonRight:hover,
+.AppToolbarButtonRight:checked,
+.toolbarbutton:hover,
+.toolbarbutton:checked,
+.toolbarbuttonLeft:hover,
+.toolbarbuttonLeft:checked,
+.toolbarbuttonMid:hover,
+.toolbarbuttonMid:checked,
+.toolbarbuttonRight:hover,
+.toolbarbuttonRight:checked,
+.ToolbarDropDownToggle:hover,
+.ToolbarDropDownToggle:checked,
+.ToolbarDropDownToggleLeft:hover,
+.ToolbarDropDownToggleLeft:checked,
+.ToolbarDropDownToggleMid:hover,
+.ToolbarDropDownToggleMid:checked,
+.ToolbarDropDownToggleRight:hover,
+.ToolbarDropDownToggleRight:checked,
+.ToolbarDropDown:hover,
+.ToolbarDropDown:checked,
+.ToolbarDropDownLeft:hover,
+.ToolbarDropDownLeft:checked,
+.ToolbarDropDownMid:hover,
+.ToolbarDropDownMid:checked,
+.ToolbarDropDownRight:hover,
+.ToolbarDropDownRight:checked,
+.ToolbarPopup:hover,
+.ToolbarPopup:checked,
+.ToolbarPopupLeft:hover,
+.ToolbarPopupLeft:checked,
+.ToolbarPopupMid:hover,
+.ToolbarPopupMid:checked,
+.ToolbarPopupRight:hover,
+.ToolbarPopupRight:checked,
+.Button:hover,
+.Button:checked,
+.LargeButton:hover,
+.LargeButton:checked,
+.LargeButtonLeft:hover,
+.LargeButtonLeft:checked,
+.LargeButtonMid:hover,
+.LargeButtonMid:checked,
+.LargeButtonRight:hover,
+.LargeButtonRight:checked,
+.toggle:hover,
+.toggle:checked,
+.minibutton:hover,
+.minibutton:checked,
+.minibuttonleft:hover,
+.minibuttonleft:checked,
+.minibuttonmid:hover,
+.minibuttonmid:checked,
+.minibuttonright:hover,
+.minibuttonright:checked,
+.ButtonLeft:hover,
+.ButtonLeft:checked,
+.ButtonMid:hover,
+.ButtonMid:checked,
+.ButtonRight:hover,
+.ButtonRight:checked,
+.ObjectFieldButton:hover,
+.ObjectFieldButton:checked,
+.ColorField:hover,
+.ColorField:checked,
+.AC-Button:hover,
+.AC-Button:checked,
+.IN-Title:hover,
+.IN-Title:checked,
+.ToolbarCreateAddNewDropDown:hover,
+.ToolbarCreateAddNewDropDown:checked,
+.StatusBarIcon:hover,
+.StatusBarIcon:checked {
+    background-color: #C5E4E8;
+    border-top-color: #A8CDD2;
+    border-bottom-color: #A8CDD2;
+    border-left-color: #A8CDD2;
+    border-right-color: #A8CDD2;
+    background-image: none;
+    color: #163236;
+}
+
+.AppCommand:active,
+.AppCommandLeft:active,
+.AppCommandMid:active,
+.AppCommandRight:active,
+.AppToolbarButtonLeft:active,
+.AppToolbarButtonMid:active,
+.AppToolbarButtonRight:active,
+.toolbarbutton:active,
+.toolbarbuttonLeft:active,
+.toolbarbuttonMid:active,
+.toolbarbuttonRight:active,
+.ToolbarDropDownToggle:active,
+.ToolbarDropDownToggleLeft:active,
+.ToolbarDropDownToggleMid:active,
+.ToolbarDropDownToggleRight:active,
+.ToolbarDropDown:active,
+.ToolbarDropDownLeft:active,
+.ToolbarDropDownMid:active,
+.ToolbarDropDownRight:active,
+.ToolbarPopup:active,
+.ToolbarPopupLeft:active,
+.ToolbarPopupMid:active,
+.ToolbarPopupRight:active,
+.Button:active,
+.LargeButton:active,
+.LargeButtonLeft:active,
+.LargeButtonMid:active,
+.LargeButtonRight:active,
+.toggle:active,
+.minibutton:active,
+.minibuttonleft:active,
+.minibuttonmid:active,
+.minibuttonright:active,
+.ButtonLeft:active,
+.ButtonMid:active,
+.ButtonRight:active,
+.ObjectFieldButton:active,
+.ColorField:active,
+.AC-Button:active,
+.IN-Title:active,
+.ToolbarCreateAddNewDropDown:active,
+.StatusBarIcon:active {
+    background-color: #9FD4DA;
+    border-top-color: #7AAEB4;
+    border-bottom-color: #7AAEB4;
+    border-left-color: #7AAEB4;
+    border-right-color: #7AAEB4;
+    background-image: none;
+    color: #163236;
+}
+
+.TextField:hover,
+.TextField:active,
+.TextField:checked,
+.MiniPopup:hover,
+.MiniPopup:active,
+.MiniPopup:checked,
+.BoldTextField:hover,
+.BoldTextField:active,
+.BoldTextField:checked,
+.MiniPullDown:hover,
+.MiniPullDown:active,
+.MiniPullDown:checked,
+.DropDownButton:hover,
+.DropDownButton:active,
+.DropDownButton:checked,
+.DropDown:hover,
+.DropDown:active,
+.DropDown:checked {
+    background-color: #F7FCFD;
+    border-top-color: #1A8A94;
+    border-bottom-color: #1A8A94;
+    border-left-color: #1A8A94;
+    border-right-color: #1A8A94;
+}
+
+.dragtab-first,
+.dragtab {
+    background-image: none;
+    background-color: #C8DDE0;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-color: #C5DCE0;
+    border-bottom-color: #C5DCE0;
+    border-left-color: #C5DCE0;
+    border-right-color: #C5DCE0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.dragtab-first:hover,
+.dragtab-first:checked,
+.dragtab:hover,
+.dragtab:checked {
+    background-color: #F3FAFB;
+}
+
+.AppCommandLeftOn {
+    background-image: none;
+    background-color: #8EC8CE;
+    border-top-color: #7AAEB4;
+    border-bottom-color: #7AAEB4;
+    border-left-color: #7AAEB4;
+    border-right-color: #7AAEB4;
+    color: #163236;
+}
+
+.button,
+.Command,
+.CommandLeft,
+.CommandMid,
+.CommandRight,
+.PreButton,
+.PreButtonBlue,
+.PreButtonGreen,
+.PreButtonRed,
+.PreDropDown,
+.IconButton,
+.HeaderButton,
+.MiniToolbarButton,
+.MiniToolbarButtonLeft,
+.ToolbarButtonFlat,
+.DropDownToggleButton,
+.ToolbarDropDownToggleButton,
+.wordwrapminibutton,
+.RL-FooterButton,
+.LODRendererAddButton,
+.LODRendererButton,
+.AC-ComponentButton,
+.IN-DropDown,
+.IN-EditColliderButton,
+.GV-Gizmo-DropDown,
+.TE-toolbarbutton,
+.TE-ToolbarDropDown,
+.FloatFieldLinkButton,
+.SettingsIconButton,
+.SearchCancelButton,
+.ToolbarSearchCancelButton {
+    background-image: none;
+    background-color: #F3FAFB;
+    border-top-color: #A8CDD2;
+    border-bottom-color: #A8CDD2;
+    border-left-color: #A8CDD2;
+    border-right-color: #A8CDD2;
+    color: #163236;
+}
+
+.button:hover,
+.button:checked,
+.Command:hover,
+.Command:checked,
+.CommandLeft:hover,
+.CommandLeft:checked,
+.CommandMid:hover,
+.CommandMid:checked,
+.CommandRight:hover,
+.CommandRight:checked,
+.PreButton:hover,
+.PreButton:checked,
+.PreDropDown:hover,
+.PreDropDown:checked,
+.IconButton:hover,
+.IconButton:checked,
+.HeaderButton:hover,
+.HeaderButton:checked,
+.MiniToolbarButton:hover,
+.MiniToolbarButton:checked,
+.MiniToolbarButtonLeft:hover,
+.MiniToolbarButtonLeft:checked,
+.ToolbarButtonFlat:hover,
+.ToolbarButtonFlat:checked,
+.DropDownToggleButton:hover,
+.DropDownToggleButton:checked,
+.ToolbarDropDownToggleButton:hover,
+.ToolbarDropDownToggleButton:checked,
+.wordwrapminibutton:hover,
+.wordwrapminibutton:checked,
+.RL-FooterButton:hover,
+.RL-FooterButton:checked,
+.TE-toolbarbutton:hover,
+.TE-toolbarbutton:checked,
+.TE-ToolbarDropDown:hover,
+.TE-ToolbarDropDown:checked {
+    background-image: none;
+    background-color: #C5E4E8;
+    border-top-color: #A8CDD2;
+    border-bottom-color: #A8CDD2;
+    border-left-color: #A8CDD2;
+    border-right-color: #A8CDD2;
+    color: #163236;
+}
+
+.button:active,
+.Command:active,
+.CommandLeft:active,
+.CommandMid:active,
+.CommandRight:active,
+.PreButton:active,
+.PreDropDown:active,
+.IconButton:active,
+.HeaderButton:active,
+.MiniToolbarButton:active,
+.MiniToolbarButtonLeft:active,
+.ToolbarButtonFlat:active,
+.DropDownToggleButton:active,
+.ToolbarDropDownToggleButton:active,
+.wordwrapminibutton:active,
+.RL-FooterButton:active,
+.TE-toolbarbutton:active,
+.TE-ToolbarDropDown:active {
+    background-image: none;
+    background-color: #9FD4DA;
+    border-top-color: #7AAEB4;
+    border-bottom-color: #7AAEB4;
+    border-left-color: #7AAEB4;
+    border-right-color: #7AAEB4;
+    color: #163236;
+}
+
+.unity-editor-toolbar-container,
+.unity-editor-toolbar-container__zone {
+    background-image: none;
+    background-color: #B9D8DC;
+}
+
+.unity-button,
+.unity-toolbar-button,
+.unity-editor-toolbar-element,
+.unity-editor-toolbar-toggle,
+.unity-toolbar-toggle,
+.unity-editor-toolbar__button-strip-element,
+.unity-editor-toolbar__button-strip {
+    background-image: none;
+    background-color: #F3FAFB;
+    border-top-color: #A8CDD2;
+    border-bottom-color: #A8CDD2;
+    border-left-color: #A8CDD2;
+    border-right-color: #A8CDD2;
+    color: #163236;
+}
+
+.unity-button:hover,
+.unity-toolbar-button:hover,
+.unity-editor-toolbar-element:hover,
+.unity-editor-toolbar-toggle:hover,
+.unity-toolbar-toggle:hover,
+.unity-editor-toolbar__button-strip-element:hover {
+    background-image: none;
+    background-color: #C5E4E8;
+    border-top-color: #A8CDD2;
+    border-bottom-color: #A8CDD2;
+    border-left-color: #A8CDD2;
+    border-right-color: #A8CDD2;
+    color: #163236;
+}
+
+.unity-button:checked,
+.unity-button:active,
+.unity-toolbar-button:checked,
+.unity-toolbar-button:active,
+.unity-editor-toolbar-element:checked,
+.unity-editor-toolbar-element:active,
+.unity-editor-toolbar-toggle:checked,
+.unity-editor-toolbar-toggle:active,
+.unity-toolbar-toggle:checked,
+.unity-toolbar-toggle:active,
+.unity-editor-toolbar__button-strip-element:checked,
+.unity-editor-toolbar__button-strip-element:active,
+.unity-toggle--checked,
+.unity-toolbar-toggle.unity-toggle--checked,
+.unity-editor-toolbar-toggle.unity-toggle--checked {
+    background-image: none;
+    background-color: #8EC8CE;
+    border-top-color: #7AAEB4;
+    border-bottom-color: #7AAEB4;
+    border-left-color: #7AAEB4;
+    border-right-color: #7AAEB4;
+    color: #163236;
+}
+
+#Play.unity-editor-toolbar-toggle,
+#Pause.unity-editor-toolbar-toggle,
+#Step.unity-toolbar-button,
+.unity-editor-toolbar-container #Play,
+.unity-editor-toolbar-container #Pause,
+.unity-editor-toolbar-container #Step {
+    background-image: none;
+    background-color: #C5E4E8;
+    border-top-color: #7AAEB4;
+    border-bottom-color: #7AAEB4;
+    border-left-color: #7AAEB4;
+    border-right-color: #7AAEB4;
+}
+
+#Play.unity-editor-toolbar-toggle:hover,
+#Pause.unity-editor-toolbar-toggle:hover,
+#Step.unity-toolbar-button:hover,
+.unity-editor-toolbar-container #Play:hover,
+.unity-editor-toolbar-container #Pause:hover,
+.unity-editor-toolbar-container #Step:hover {
+    background-image: none;
+    background-color: #A8D8DE;
+    border-top-color: #5F9CA4;
+    border-bottom-color: #5F9CA4;
+    border-left-color: #5F9CA4;
+    border-right-color: #5F9CA4;
+}
+
+#Play.unity-editor-toolbar-toggle:checked,
+#Pause.unity-editor-toolbar-toggle:checked,
+#Play.unity-editor-toolbar-toggle:active,
+#Pause.unity-editor-toolbar-toggle:active,
+#Step.unity-toolbar-button:active,
+.unity-editor-toolbar-container #Play:checked,
+.unity-editor-toolbar-container #Pause:checked,
+.unity-editor-toolbar-container #Play:active,
+.unity-editor-toolbar-container #Pause:active,
+.unity-editor-toolbar-container #Step:active {
+    background-image: none;
+    background-color: #6EC4CC;
+    border-top-color: #1A8A94;
+    border-bottom-color: #1A8A94;
+    border-left-color: #1A8A94;
+    border-right-color: #1A8A94;
+}
+
+#LayoutDropdown,
+#LayersDropdown,
+#AccountDropdown,
+#Cloud,
+#ModesDropdown,
+#History {
+    background-image: none;
+    background-color: #C5E4E8;
+    border-top-color: #7AAEB4;
+    border-bottom-color: #7AAEB4;
+    border-left-color: #7AAEB4;
+    border-right-color: #7AAEB4;
+    color: #163236;
+}
+
+#LayoutDropdown:hover,
+#LayersDropdown:hover,
+#AccountDropdown:hover,
+#Cloud:hover,
+#ModesDropdown:hover,
+#History:hover {
+    background-image: none;
+    background-color: #A8D8DE;
+    border-top-color: #5F9CA4;
+    border-bottom-color: #5F9CA4;
+    border-left-color: #5F9CA4;
+    border-right-color: #5F9CA4;
+}
+
+#LayoutDropdown:active,
+#LayersDropdown:active,
+#AccountDropdown:active,
+#Cloud:active,
+#ModesDropdown:active,
+#History:active {
+    background-image: none;
+    background-color: #6EC4CC;
+    border-top-color: #1A8A94;
+    border-bottom-color: #1A8A94;
+    border-left-color: #1A8A94;
+    border-right-color: #1A8A94;
+}
+
+.unity-text-element.unity-toolbar-button.unity-editor-toolbar-element {
+    background-image: none;
+    background-color: #C5E4E8;
+    border-top-color: #7AAEB4;
+    border-bottom-color: #7AAEB4;
+    border-left-color: #7AAEB4;
+    border-right-color: #7AAEB4;
+    color: #163236;
+}
+
+.unity-text-element.unity-toolbar-button.unity-editor-toolbar-element:hover {
+    background-image: none;
+    background-color: #A8D8DE;
+    border-top-color: #5F9CA4;
+    border-bottom-color: #5F9CA4;
+    border-left-color: #5F9CA4;
+    border-right-color: #5F9CA4;
+}
+
+.unity-text-element.unity-toolbar-button.unity-editor-toolbar-element:active {
+    background-image: none;
+    background-color: #6EC4CC;
+    border-top-color: #1A8A94;
+    border-bottom-color: #1A8A94;
+    border-left-color: #1A8A94;
+    border-right-color: #1A8A94;
+}
