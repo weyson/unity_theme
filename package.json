@@ -1,7 +1,7 @@
 {
   "name": "com.wey.editor-theme",
   "displayName": "Wey Editor Theme",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "unity": "2022.3",
   "description": "Light editor theme for Unity with multiple color schemes. Set Edit > Preferences > General > Editor Theme to Light, then pick a scheme under Wey > Editor Theme.",
   "keywords": [

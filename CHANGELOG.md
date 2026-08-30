@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.5
+
+- Add **Unity Light (Default)** color scheme to restore Unity's built-in Light editor chrome without Wey overrides.
+
 ## 1.1.4
 
 - Fix switching back to Cyan (including after editor restart): inject the active palette USS directly instead of reusing `light.uss`, and force `light.uss` reimport with a sync nonce so Unity rebuilds IMGUI editor chrome.

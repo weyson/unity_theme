@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -44,15 +45,9 @@ namespace Wey.EditorTheme
 
     public static class WeyEditorThemeSettingsProvider
     {
-        private static readonly string[] ArrColorSchemeLabels =
-        {
-            WeyEditorThemeColorSchemeUtility.GetDisplayName(WeyEditorThemeColorScheme.Cyan),
-            WeyEditorThemeColorSchemeUtility.GetDisplayName(WeyEditorThemeColorScheme.Warm),
-            WeyEditorThemeColorSchemeUtility.GetDisplayName(WeyEditorThemeColorScheme.Lavender),
-            WeyEditorThemeColorSchemeUtility.GetDisplayName(WeyEditorThemeColorScheme.Sand),
-            WeyEditorThemeColorSchemeUtility.GetDisplayName(WeyEditorThemeColorScheme.Mint),
-            WeyEditorThemeColorSchemeUtility.GetDisplayName(WeyEditorThemeColorScheme.Rose),
-        };
+        private static readonly string[] ArrColorSchemeLabels = WeyEditorThemeColorSchemeUtility.ArrPopupOrder
+            .Select(WeyEditorThemeColorSchemeUtility.GetDisplayName)
+            .ToArray();
 
         [SettingsProvider]
         public static SettingsProvider CreateProvider()
@@ -63,7 +58,7 @@ namespace Wey.EditorTheme
                 guiHandler = OnGui,
                 keywords = new HashSet<string>(new[]
                 {
-                    "Wey", "Editor", "Theme", "Light", "Cyan", "Warm", "Lavender", "Sand", "Mint", "Rose", "Toolbar", "Color"
+                    "Wey", "Editor", "Theme", "Light", "Unity", "Default", "Cyan", "Warm", "Lavender", "Sand", "Mint", "Rose", "Toolbar", "Color"
                 })
             };
             return provider;
@@ -75,14 +70,18 @@ namespace Wey.EditorTheme
             EditorGUILayout.Space(4f);
 
             EditorGUI.BeginChangeCheck();
-            int intScheme = EditorGUILayout.Popup(
-                "Color Scheme",
-                (int)WeyEditorThemeSettings.ColorScheme,
-                ArrColorSchemeLabels);
+            WeyEditorThemeColorScheme schemeCurrent = WeyEditorThemeSettings.ColorScheme;
+            int intSchemeIndex = System.Array.IndexOf(WeyEditorThemeColorSchemeUtility.ArrPopupOrder, schemeCurrent);
+            if (intSchemeIndex < 0)
+                intSchemeIndex = 1;
+            int intScheme = EditorGUILayout.Popup("Color Scheme", intSchemeIndex, ArrColorSchemeLabels);
             bool isEnabled = EditorGUILayout.Toggle("Enable Toolbar Theme Injection", WeyEditorThemeSettings.IsEnabled);
 
             EditorGUILayout.HelpBox(
                 "Unity must use Edit > Preferences > General > Editor Theme = Light.",
+                MessageType.Info);
+            EditorGUILayout.HelpBox(
+                "Choose Unity Light (Default) to restore Unity's built-in Light editor chrome without Wey color overrides.",
                 MessageType.Info);
             EditorGUILayout.HelpBox(
                 "Some editor chrome may need a domain reload to fully apply after changing the color scheme.",
@@ -93,7 +92,7 @@ namespace Wey.EditorTheme
 
             if (EditorGUI.EndChangeCheck())
             {
-                WeyEditorThemeSettings.ApplyColorScheme((WeyEditorThemeColorScheme)intScheme);
+                WeyEditorThemeSettings.ApplyColorScheme(WeyEditorThemeColorSchemeUtility.ArrPopupOrder[intScheme]);
                 WeyEditorThemeSettings.IsEnabled = isEnabled;
             }
         }

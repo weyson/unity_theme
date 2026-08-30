@@ -21,7 +21,7 @@ https://github.com/weyson/unity_theme.git
 Optional version pin:
 
 ```
-https://github.com/weyson/unity_theme.git#v1.1.4
+https://github.com/weyson/unity_theme.git#v1.1.5
 ```
 
 ### manifest.json
@@ -35,7 +35,7 @@ Add to `Packages/manifest.json`:
 Optional version pin:
 
 ```json
-"com.wey.editor-theme": "https://github.com/weyson/unity_theme.git#v1.1.4"
+"com.wey.editor-theme": "https://github.com/weyson/unity_theme.git#v1.1.5"
 ```
 
 Local development:
@@ -48,7 +48,8 @@ Local development:
 
 1. Set **Edit > Preferences > General > Editor Theme** to **Light**.
 2. Open **Edit > Preferences > Wey > Editor Theme** and pick a **Color Scheme**:
-   - **Cyan** (default)
+   - **Unity Light (Default)** — Unity's built-in Light editor chrome
+   - **Cyan**
    - **Warm**
    - **Lavender**
    - **Sand**

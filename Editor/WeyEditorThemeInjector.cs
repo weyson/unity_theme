@@ -12,7 +12,7 @@ namespace Wey.EditorTheme
     {
         private static readonly HashSet<string> KnownThemeSheetNames = new HashSet<string>(StringComparer.Ordinal)
         {
-            "light", "cyan", "warm", "lavender", "sand", "mint", "rose",
+            "light", "cyan", "warm", "lavender", "sand", "mint", "rose", "unity_default",
         };
 
         private static StyleSheet SheetLight;
@@ -46,12 +46,9 @@ namespace Wey.EditorTheme
 
         private static void InjectToolbarTheme()
         {
-            if (EditorGUIUtility.isProSkin || !WeyEditorThemeSettings.IsEnabled)
+            if (ShouldSkipInjection())
             {
-                StyleSheet sheetOld = SheetLight;
-                if (VeInjectedRoot != null && sheetOld != null)
-                    RemoveSheetRecursive(VeInjectedRoot, sheetOld);
-                VeInjectedRoot = null;
+                ClearToolbarThemeSheets();
                 return;
             }
             if (SheetLight == null)
@@ -62,20 +59,7 @@ namespace Wey.EditorTheme
             }
             if (SheetLight == null)
                 return;
-            if (FieldToolbarGet == null || FieldToolbarRoot == null)
-            {
-                Type typeToolbar = typeof(Editor).Assembly.GetType("UnityEditor.Toolbar");
-                if (typeToolbar == null)
-                    return;
-                FieldToolbarGet = typeToolbar.GetField("get", BindingFlags.Public | BindingFlags.Static);
-                FieldToolbarRoot = typeToolbar.GetField("m_Root", BindingFlags.NonPublic | BindingFlags.Instance);
-                if (FieldToolbarGet == null || FieldToolbarRoot == null)
-                    return;
-            }
-            object objToolbar = FieldToolbarGet.GetValue(null);
-            if (objToolbar == null)
-                return;
-            VisualElement veRoot = FieldToolbarRoot.GetValue(objToolbar) as VisualElement;
+            VisualElement veRoot = TryGetToolbarRoot();
             if (veRoot == null)
                 return;
             bool isSameRoot = VeInjectedRoot == veRoot && veRoot.panel != null;
@@ -85,6 +69,58 @@ namespace Wey.EditorTheme
             AddOrRefreshSheetRecursive(veRoot);
             VeInjectedRoot = veRoot;
             IntInjectedHash = SheetLight.contentHash;
+        }
+
+        private static bool ShouldSkipInjection()
+        {
+            return EditorGUIUtility.isProSkin
+                || !WeyEditorThemeSettings.IsEnabled
+                || !WeyEditorThemeColorSchemeUtility.UsesCustomPalette(WeyEditorThemeSettings.ColorScheme);
+        }
+
+        private static void ClearToolbarThemeSheets()
+        {
+            StyleSheet sheetOld = SheetLight;
+            VisualElement veRoot = VeInjectedRoot ?? TryGetToolbarRoot();
+            if (veRoot != null)
+            {
+                if (sheetOld != null)
+                    RemoveSheetRecursive(veRoot, sheetOld);
+                ClearStaleThemeSheetsRecursive(veRoot);
+            }
+            VeInjectedRoot = null;
+        }
+
+        private static VisualElement TryGetToolbarRoot()
+        {
+            if (FieldToolbarGet == null || FieldToolbarRoot == null)
+            {
+                Type typeToolbar = typeof(Editor).Assembly.GetType("UnityEditor.Toolbar");
+                if (typeToolbar == null)
+                    return null;
+                FieldToolbarGet = typeToolbar.GetField("get", BindingFlags.Public | BindingFlags.Static);
+                FieldToolbarRoot = typeToolbar.GetField("m_Root", BindingFlags.NonPublic | BindingFlags.Instance);
+                if (FieldToolbarGet == null || FieldToolbarRoot == null)
+                    return null;
+            }
+            object objToolbar = FieldToolbarGet.GetValue(null);
+            if (objToolbar == null)
+                return null;
+            return FieldToolbarRoot.GetValue(objToolbar) as VisualElement;
+        }
+
+        private static void ClearStaleThemeSheetsRecursive(VisualElement veRoot)
+        {
+            Queue<VisualElement> queueVe = new Queue<VisualElement>();
+            queueVe.Enqueue(veRoot);
+            while (queueVe.Count > 0)
+            {
+                VisualElement ve = queueVe.Dequeue();
+                RemoveStaleThemeSheets(ve);
+                int intChildCount = ve.childCount;
+                for (int i = 0; i < intChildCount; i++)
+                    queueVe.Enqueue(ve[i]);
+            }
         }
 
         private static void AddOrRefreshSheetRecursive(VisualElement veRoot)

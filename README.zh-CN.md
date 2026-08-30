@@ -21,7 +21,7 @@ https://github.com/weyson/unity_theme.git
 可选：固定版本：
 
 ```
-https://github.com/weyson/unity_theme.git#v1.1.4
+https://github.com/weyson/unity_theme.git#v1.1.5
 ```
 
 ### manifest.json
@@ -35,7 +35,7 @@ https://github.com/weyson/unity_theme.git#v1.1.4
 可选：固定版本：
 
 ```json
-"com.wey.editor-theme": "https://github.com/weyson/unity_theme.git#v1.1.4"
+"com.wey.editor-theme": "https://github.com/weyson/unity_theme.git#v1.1.5"
 ```
 
 本地开发：
@@ -48,7 +48,8 @@ https://github.com/weyson/unity_theme.git#v1.1.4
 
 1. 将 **Edit > Preferences > General > Editor Theme** 设为 **Light**。
 2. 打开 **Edit > Preferences > Wey > Editor Theme**，选择 **Color Scheme（配色方案）**：
-   - **Cyan**（青色，默认）
+   - **Unity Light (Default)** — Unity 内置 Light 编辑器外观
+   - **Cyan**（青色）
    - **Warm**（暖色）
    - **Lavender**（淡紫）
    - **Sand**（沙色）

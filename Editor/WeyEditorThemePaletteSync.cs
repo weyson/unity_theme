@@ -29,15 +29,6 @@ namespace Wey.EditorTheme
 
         public static void Sync(WeyEditorThemeColorScheme scheme)
         {
-            string strPaletteDiskPath = ResolveAssetDiskPath(GetPalettePackagePath(scheme));
-            if (string.IsNullOrEmpty(strPaletteDiskPath) || !File.Exists(strPaletteDiskPath))
-                return;
-
-            string strPaletteText = File.ReadAllText(strPaletteDiskPath);
-            Match matchBody = RegexPaletteBody.Match(strPaletteText);
-            if (!matchBody.Success)
-                return;
-
             int intNonce = EditorPrefs.GetInt(StrPrefsSyncNonce, 0) + 1;
             EditorPrefs.SetInt(StrPrefsSyncNonce, intNonce);
 
@@ -47,7 +38,25 @@ namespace Wey.EditorTheme
                 $"   active: {strSchemeName}; sync: {intNonce}\n" +
                 "   Enable: Edit > Preferences > General > Editor Theme = Light. */\n\n";
 
-            string strLightContent = strLightHeader + matchBody.Value.TrimEnd() + "\n";
+            string strLightContent;
+            if (WeyEditorThemeColorSchemeUtility.IsUnityDefault(scheme))
+            {
+                strLightContent = strLightHeader;
+            }
+            else
+            {
+                string strPaletteDiskPath = ResolveAssetDiskPath(GetPalettePackagePath(scheme));
+                if (string.IsNullOrEmpty(strPaletteDiskPath) || !File.Exists(strPaletteDiskPath))
+                    return;
+
+                string strPaletteText = File.ReadAllText(strPaletteDiskPath);
+                Match matchBody = RegexPaletteBody.Match(strPaletteText);
+                if (!matchBody.Success)
+                    return;
+
+                strLightContent = strLightHeader + matchBody.Value.TrimEnd() + "\n";
+            }
+
             string strLightDiskPath = ResolveAssetDiskPath(StrLightUssPackagePath);
             if (string.IsNullOrEmpty(strLightDiskPath))
                 return;
