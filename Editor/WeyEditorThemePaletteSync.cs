@@ -1,7 +1,6 @@
 using System.IO;
 using System.Text.RegularExpressions;
 using UnityEditor;
-using UnityEditor.PackageManager;
 
 namespace Wey.EditorTheme
 {
@@ -67,7 +66,8 @@ namespace Wey.EditorTheme
 
         private static string ResolveAssetDiskPath(string packagePath)
         {
-            PackageInfo packageInfo = PackageInfo.FindForAssetPath(packagePath);
+            UnityEditor.PackageManager.PackageInfo packageInfo =
+                UnityEditor.PackageManager.PackageInfo.FindForAssetPath(packagePath);
             if (packageInfo != null && !string.IsNullOrEmpty(packageInfo.resolvedPath))
             {
                 string strRelative = packagePath;
