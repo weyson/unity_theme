@@ -17,7 +17,7 @@
 可选：固定版本：
 
 ```json
-"com.wey.editor-theme": "https://github.com/weyson/unity_theme.git#v1.1.0"
+"com.wey.editor-theme": "https://github.com/weyson/unity_theme.git#v1.1.1"
 ```
 
 本地开发：
@@ -41,11 +41,10 @@
 
 ## 工作原理
 
-- `Editor/StyleSheets/Extensions/common.uss` — 共享选择器规则，通过 CSS 变量引用颜色。
-- `Editor/StyleSheets/Extensions/light.uss` — 当前激活的 palette 变量（根据所选配色方案同步）。
-- `Editor/StyleSheets/Palettes/*.uss` — 各配色方案的 palette 定义。
+- `Editor/StyleSheets/Extensions/light.uss` — 当前激活的完整主题（CSS 变量 + 字面量颜色的 IMGUI 选择器规则），根据所选配色方案同步。
+- `Editor/StyleSheets/Palettes/*.uss` — 各配色方案的完整主题定义。
 - `WeyEditorThemeInjector` — 将 `light.uss` 注入主工具栏及自带 `ToolbarLight` 样式的按钮（Play/Pause/Step、Layout、Layers 等）。
-- `WeyEditorThemePaletteSync` — 将所选 palette 复制到 `light.uss`，使 Unity 全局合并正确的颜色。
+- `WeyEditorThemePaletteSync` — 将所选 palette 复制到 `light.uss`，使 Unity 全局合并正确的主题。
 
 ## 开关行为
 

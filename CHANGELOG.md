@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.1
+
+- Fix black editor UI: restore IMGUI selector rules with literal colors in each palette and `light.uss`. Unity Extensions USS does not resolve `var()` across `common.uss` / `light.uss`.
+
 ## 1.1.0
 
 - Add six color schemes in Preferences > Wey > Editor Theme: Cyan, Warm, Lavender, Sand, Mint, Rose.

@@ -17,7 +17,7 @@ Add to `Packages/manifest.json`:
 Optional version pin:
 
 ```json
-"com.wey.editor-theme": "https://github.com/weyson/unity_theme.git#v1.1.0"
+"com.wey.editor-theme": "https://github.com/weyson/unity_theme.git#v1.1.1"
 ```
 
 Local development:
@@ -41,11 +41,10 @@ Local development:
 
 ## How it works
 
-- `Editor/StyleSheets/Extensions/common.uss` — shared selector rules using CSS variables.
-- `Editor/StyleSheets/Extensions/light.uss` — active palette variables (synced from your color scheme choice).
-- `Editor/StyleSheets/Palettes/*.uss` — palette definitions for each color scheme.
+- `Editor/StyleSheets/Extensions/light.uss` — active full theme (CSS variables + IMGUI selector rules with literal colors), synced from your color scheme choice.
+- `Editor/StyleSheets/Palettes/*.uss` — complete theme definition for each color scheme.
 - `WeyEditorThemeInjector` — injects `light.uss` onto the main toolbar and buttons that ship their own `ToolbarLight` styles (Play/Pause/Step, Layout, Layers, etc.).
-- `WeyEditorThemePaletteSync` — copies the selected palette into `light.uss` so Unity merges the correct colors globally.
+- `WeyEditorThemePaletteSync` — copies the selected palette into `light.uss` so Unity merges the correct theme globally.
 
 ## Toggle behavior
 

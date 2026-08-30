@@ -14,8 +14,8 @@ namespace Wey.EditorTheme
             "/* Wey Editor Theme: active palette (auto-synced from Preferences).\n" +
             "   Enable: Edit > Preferences > General > Editor Theme = Light. */\n\n";
 
-        private static readonly Regex RegexRootBlock = new Regex(
-            @"\.unity-theme-env-variables,\s*:root\s*\{[\s\S]*\}",
+        private static readonly Regex RegexPaletteBody = new Regex(
+            @"(\.unity-theme-env-variables,[\s\S]*)",
             RegexOptions.Compiled);
 
         static WeyEditorThemePaletteSync()
@@ -36,11 +36,11 @@ namespace Wey.EditorTheme
                 return;
 
             string strPaletteText = File.ReadAllText(strPaletteDiskPath);
-            Match matchRoot = RegexRootBlock.Match(strPaletteText);
-            if (!matchRoot.Success)
+            Match matchBody = RegexPaletteBody.Match(strPaletteText);
+            if (!matchBody.Success)
                 return;
 
-            string strLightContent = StrLightHeader + matchRoot.Value + "\n";
+            string strLightContent = StrLightHeader + matchBody.Value.TrimEnd() + "\n";
             string strLightDiskPath = ResolveLightUssDiskPath();
             if (string.IsNullOrEmpty(strLightDiskPath))
                 return;
