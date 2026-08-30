@@ -30,7 +30,7 @@ namespace Wey.EditorTheme
             VeInjectedRoot = null;
             IntInjectedHash = 0;
             InjectToolbarTheme();
-            InternalEditorUtility.RepaintAllViews();
+            UnityEditorInternal.InternalEditorUtility.RepaintAllViews();
         }
 
         private static void InjectToolbarTheme()
