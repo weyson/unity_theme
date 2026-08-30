@@ -103,11 +103,14 @@ namespace Wey.EditorTheme
 
         private static void RemoveStaleLightSheets(VisualElement ve)
         {
-            for (int i = ve.styleSheets.count - 1; i >= 0; i--)
+            for (int i = 0; i < ve.styleSheets.count; i++)
             {
                 StyleSheet sheet = ve.styleSheets[i];
                 if (sheet != null && sheet != SheetLight && sheet.name == StrLightSheetName)
-                    ve.styleSheets.RemoveAt(i);
+                {
+                    ve.styleSheets.Remove(sheet);
+                    i--;
+                }
             }
         }
 

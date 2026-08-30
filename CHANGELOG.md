@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.3
+
+- Fix compile on Unity 2022.3: use `VisualElementStyleSheetSet.Remove()` instead of `RemoveAt()` when clearing stale injected sheets.
+
 ## 1.1.2
 
 - Fix color scheme switch back (e.g. Warm to Cyan): remove the previous injected StyleSheet before reloading `light.uss`, so toolbar colors update correctly.
