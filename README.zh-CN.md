@@ -8,6 +8,24 @@
 
 ## 安装
 
+### Package Manager（推荐）
+
+1. 打开 **Window > Package Manager**。
+2. 点击左上角 **+**，选择 **Add package from git URL...**（从 Git URL 添加包）。
+3. 输入以下地址之一，点击 **Add**：
+
+```
+https://github.com/weyson/unity_theme.git
+```
+
+可选：固定版本：
+
+```
+https://github.com/weyson/unity_theme.git#v1.1.4
+```
+
+### manifest.json
+
 在 `Packages/manifest.json` 中添加：
 
 ```json
@@ -17,7 +35,7 @@
 可选：固定版本：
 
 ```json
-"com.wey.editor-theme": "https://github.com/weyson/unity_theme.git#v1.1.1"
+"com.wey.editor-theme": "https://github.com/weyson/unity_theme.git#v1.1.4"
 ```
 
 本地开发：

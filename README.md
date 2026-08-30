@@ -8,6 +8,24 @@ Repository: [weyson/unity_theme](https://github.com/weyson/unity_theme)
 
 ## Install
 
+### Package Manager (recommended)
+
+1. Open **Window > Package Manager**.
+2. Click **+** (top-left) and choose **Add package from git URL...**
+3. Enter one of the following URLs and click **Add**:
+
+```
+https://github.com/weyson/unity_theme.git
+```
+
+Optional version pin:
+
+```
+https://github.com/weyson/unity_theme.git#v1.1.4
+```
+
+### manifest.json
+
 Add to `Packages/manifest.json`:
 
 ```json
@@ -17,7 +35,7 @@ Add to `Packages/manifest.json`:
 Optional version pin:
 
 ```json
-"com.wey.editor-theme": "https://github.com/weyson/unity_theme.git#v1.1.1"
+"com.wey.editor-theme": "https://github.com/weyson/unity_theme.git#v1.1.4"
 ```
 
 Local development:
