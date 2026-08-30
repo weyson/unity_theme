@@ -4,6 +4,8 @@ Cyan-tinted **Light** theme for the Unity Editor (2022.3+), with multiple color 
 
 Repository: [weyson/unity_theme](https://github.com/weyson/unity_theme)
 
+[简体中文](README.zh-CN.md)
+
 ## Install
 
 Add to `Packages/manifest.json`:
