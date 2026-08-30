@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.4
+
+- Fix switching back to Cyan (including after editor restart): inject the active palette USS directly instead of reusing `light.uss`, and force `light.uss` reimport with a sync nonce so Unity rebuilds IMGUI editor chrome.
+
 ## 1.1.3
 
 - Fix compile on Unity 2022.3: use `VisualElementStyleSheetSet.Remove()` instead of `RemoveAt()` when clearing stale injected sheets.

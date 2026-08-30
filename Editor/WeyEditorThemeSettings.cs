@@ -21,6 +21,13 @@ namespace Wey.EditorTheme
             }
         }
 
+        public static void ApplyColorScheme(WeyEditorThemeColorScheme scheme)
+        {
+            int intValue = (int)scheme;
+            EditorPrefs.SetInt(StrPrefsColorScheme, intValue);
+            WeyEditorThemePaletteSync.Sync(scheme);
+        }
+
         public static WeyEditorThemeColorScheme ColorScheme
         {
             get => (WeyEditorThemeColorScheme)EditorPrefs.GetInt(
@@ -30,8 +37,7 @@ namespace Wey.EditorTheme
                 int intValue = (int)value;
                 if (EditorPrefs.GetInt(StrPrefsColorScheme, (int)WeyEditorThemeColorScheme.Cyan) == intValue)
                     return;
-                EditorPrefs.SetInt(StrPrefsColorScheme, intValue);
-                WeyEditorThemePaletteSync.Sync(value);
+                ApplyColorScheme(value);
             }
         }
     }
@@ -87,7 +93,7 @@ namespace Wey.EditorTheme
 
             if (EditorGUI.EndChangeCheck())
             {
-                WeyEditorThemeSettings.ColorScheme = (WeyEditorThemeColorScheme)intScheme;
+                WeyEditorThemeSettings.ApplyColorScheme((WeyEditorThemeColorScheme)intScheme);
                 WeyEditorThemeSettings.IsEnabled = isEnabled;
             }
         }

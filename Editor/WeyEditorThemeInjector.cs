@@ -6,13 +6,14 @@ using UnityEngine.UIElements;
 
 namespace Wey.EditorTheme
 {
-    /// <summary>Loads light.uss onto the main toolbar and nodes with local toolbar stylesheets.</summary>
+    /// <summary>Injects the active palette USS onto the main toolbar and nodes with local toolbar stylesheets.</summary>
     [InitializeOnLoad]
     public static class WeyEditorThemeInjector
     {
-        public const string StrLightUssPackagePath = WeyEditorThemePaletteSync.StrLightUssPackagePath;
-
-        private const string StrLightSheetName = "light";
+        private static readonly HashSet<string> KnownThemeSheetNames = new HashSet<string>(StringComparer.Ordinal)
+        {
+            "light", "cyan", "warm", "lavender", "sand", "mint", "rose",
+        };
 
         private static StyleSheet SheetLight;
         private static VisualElement VeInjectedRoot;
@@ -54,7 +55,11 @@ namespace Wey.EditorTheme
                 return;
             }
             if (SheetLight == null)
-                SheetLight = AssetDatabase.LoadAssetAtPath<StyleSheet>(StrLightUssPackagePath);
+            {
+                string strPalettePath = WeyEditorThemePaletteSync.GetPalettePackagePath(
+                    WeyEditorThemeSettings.ColorScheme);
+                SheetLight = AssetDatabase.LoadAssetAtPath<StyleSheet>(strPalettePath);
+            }
             if (SheetLight == null)
                 return;
             if (FieldToolbarGet == null || FieldToolbarRoot == null)
@@ -91,7 +96,7 @@ namespace Wey.EditorTheme
                 VisualElement ve = queueVe.Dequeue();
                 if (ve.styleSheets.count > 0)
                 {
-                    RemoveStaleLightSheets(ve);
+                    RemoveStaleThemeSheets(ve);
                     if (!HasLightSheet(ve, SheetLight))
                         ve.styleSheets.Add(SheetLight);
                 }
@@ -101,17 +106,22 @@ namespace Wey.EditorTheme
             }
         }
 
-        private static void RemoveStaleLightSheets(VisualElement ve)
+        private static void RemoveStaleThemeSheets(VisualElement ve)
         {
             for (int i = 0; i < ve.styleSheets.count; i++)
             {
                 StyleSheet sheet = ve.styleSheets[i];
-                if (sheet != null && sheet != SheetLight && sheet.name == StrLightSheetName)
+                if (sheet != null && sheet != SheetLight && IsStaleThemeSheet(sheet))
                 {
                     ve.styleSheets.Remove(sheet);
                     i--;
                 }
             }
+        }
+
+        private static bool IsStaleThemeSheet(StyleSheet sheet)
+        {
+            return !string.IsNullOrEmpty(sheet.name) && KnownThemeSheetNames.Contains(sheet.name);
         }
 
         private static void RemoveSheetRecursive(VisualElement veRoot, StyleSheet sheet)
